@@ -49,12 +49,12 @@ public class AbsGradeUtil {
 	 */
 	public interface SingleGradeCallback<T> extends GradeCallback<T> {
 		/**设置父对象
-		 * 应用场景: 评论中 子评论child 回复 父评论parent
-		 * @param child
+		 * 应用场景: 评论中 子评论data 回复 父评论parent
+		 * @param data
 		 * @param parent
-		 * @use 例如 child.setParent(parent);
+		 * @use 例如 data.setParent(parent);
 		 */
-		void setParent(@NotNull T child, T parent);
+		void setParent(@NotNull T data, T parent);
 	}
 
 	/**
@@ -81,12 +81,12 @@ public class AbsGradeUtil {
 	 */
 	public interface DoubleGradeCallback<T> extends MultipleGradeCallback<T> {
 		/**设置父对象
-		 * 应用场景: 评论中 子评论child 回复 父评论parent
-		 * @param child
+		 * 应用场景: 评论中 子评论data 回复 父评论parent
+		 * @param data
 		 * @param parent
-		 * @use 例如 child.setParent(parent);
+		 * @use 例如 data.setParent(parent);
 		 */
-		void setParent(@NotNull T child, T parent);
+		void setParent(@NotNull T data, T parent);
 	}
 
 
