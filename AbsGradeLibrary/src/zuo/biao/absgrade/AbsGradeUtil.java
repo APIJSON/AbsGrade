@@ -15,7 +15,6 @@ limitations under the License.*/
 package zuo.biao.absgrade;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -248,7 +247,7 @@ public class AbsGradeUtil {
 				itemMap = gradeMap.get(parentId);
 			}
 			if (itemMap == null) {
-				itemMap = new HashMap<Long, T>();
+				itemMap = new LinkedHashMap<Long, T>();
 			}
 			itemMap.put(id, item);
 			gradeMap.put(parentId, itemMap);
