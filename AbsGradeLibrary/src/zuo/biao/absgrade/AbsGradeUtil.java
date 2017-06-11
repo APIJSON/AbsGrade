@@ -15,6 +15,8 @@ limitations under the License.*/
 package zuo.biao.absgrade;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,8 +91,8 @@ public class AbsGradeUtil {
 	}
 
 
-	
-	
+
+
 	/**转为单层
 	 * 适用场景:微信朋友圈单层评论
 	 * @param <T>
@@ -211,16 +213,32 @@ public class AbsGradeUtil {
 		return new ArrayList<T>(parentMap.values());
 	}
 
-	
-	
+
+
+	/**转为多层(无限层级)
+	 * 适用场景:文件夹多级文件(夹)，例如系统文件夹和百度网盘
+	 * sorted = false;
+	 * @param <T>
+	 * @param list
+	 * @param callback
+	 * @return {@link #toMultiple(List, boolean, MultipleGradeCallback)}
+	 */
+	public static <T> List<T> toMultiple(List<T> list, @NotNull MultipleGradeCallback<T> callback) {
+		return toMultiple(list, false, callback);
+	}
 	/**转为多层(无限层级)
 	 * 适用场景:文件夹多级文件(夹)，例如系统文件夹和百度网盘
 	 * @param <T>
 	 * @param list
+	 * @param sorted 已排序，这里不再需要排序
 	 * @param callback
 	 * @return
+	 * @see {@link #sort(List, GradeCallback)}
 	 */
-	public static <T> List<T> toMultiple(List<T> list, @NotNull MultipleGradeCallback<T> callback) {
+	public static <T> List<T> toMultiple(List<T> list, boolean sorted, @NotNull MultipleGradeCallback<T> callback) {
+		if (sorted == false) {
+			list = sort(list, callback);
+		}
 		if (list == null || list.isEmpty()) {
 			return list;
 		}
@@ -297,6 +315,37 @@ public class AbsGradeUtil {
 		//取出顶级itemMap内的values并转换为List返回
 		Map<Long, T> topItemMap = gradeMap.get(new Long(0));
 		return topItemMap == null ? null : new ArrayList<T>(topItemMap.values());
+	}
+
+
+	/**列表按id升序排序
+	 * 解决顺序错乱导致结果不全
+	 * @param list
+	 * @param callback
+	 * @return
+	 */
+	public static <T> List<T> sort(List<T> list, final GradeCallback<T> callback) {
+		
+		if (list != null && list.isEmpty() == false) {
+
+			Collections.sort(list, new Comparator<T>() {
+
+				@Override
+				public int compare(T o1, T o2) {
+					Long id1 = o1 == null ? null : callback.getId(o1);
+					Long id2 = o2 == null ? null : callback.getId(o2);
+					if (id1 == null) {
+						id1 = new Long(0);
+					}
+					if (id2 == null) {
+						id2 = new Long(0);
+					}
+					return id1.compareTo(id2);
+				}
+			});
+		}
+
+		return list;
 	}
 
 }
