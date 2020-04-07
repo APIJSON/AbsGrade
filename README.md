@@ -24,10 +24,6 @@ This blog will show you how it helps data binding to views.<br >
 [Android-ZBLibrary](https://github.com/TommyLemon/Android-ZBLibrary) Android MVP快速开发框架，Demo全面，注释详细，使用简单，代码严谨
 
 
-### 持续更新
-[https://github.com/TommyLemon/Android-ZBLibrary/commits/master](https://github.com/TommyLemon/Android-ZBLibrary/commits/master)
-
-
 ### 我要赞赏
 创作不易，右上角点 ⭐Star 支持下吧，谢谢 ^_^ <br />
-[https://github.com/TommyLemon/Android-ZBLibrary](https://github.com/TommyLemon/Android-ZBLibrary)
+[https://github.com/APIJSON/AbsGrade](https://github.com/APIJSON/AbsGrade)
