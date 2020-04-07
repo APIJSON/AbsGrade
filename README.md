@@ -1,7 +1,7 @@
 # AbsGrade
 列表级联算法，支持微信朋友圈单层评论、QQ空间双层评论、百度网盘多层(无限层)文件夹等。<br >
-![](https://raw.githubusercontent.com/TommyLemon/StaticResources/master/AbsGrade/AbsGrade-Single-Level-Comment-List.png)
-![](https://raw.githubusercontent.com/TommyLemon/StaticResources/master/AbsGrade/AbsGrade-Double-Level-Comment-List.png)
+![](https://raw.githubusercontent.com/TommyLemon/StaticResources/master/AbsGrade/AbsGrade-Single-Level-Comment-List-small.jpg)
+![](https://raw.githubusercontent.com/TommyLemon/StaticResources/master/AbsGrade/AbsGrade-Double-Level-Comment-List-small.jpg)
 
 效果见 [仿QQ空间和微信朋友圈，高解耦高复用高灵活](https://my.oschina.net/tommylemon/blog/885787) <br >
 <br >
